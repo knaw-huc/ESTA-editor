@@ -3,4 +3,4 @@
 thumbs.db
 .idea/*
 vendor/*
-templates_c/*
+smarty/templates_c/*
