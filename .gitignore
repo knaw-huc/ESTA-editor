@@ -1,0 +1,6 @@
+# Common
+.DS_Store
+thumbs.db
+.idea/*
+vendor/*
+templates_c/*
