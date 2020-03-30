@@ -10,10 +10,10 @@ function getFields($table, $level) {
 
     foreach ($fields as $field) {
         if ($field["Key"] != 'PRI') {
+            echo $field["Field"] . "<br>";
             switch (stripped_field_def($field["Type"])) {
-                //echo stripped_field_def($field["Type"]) . "<br>";
                 case "int":
-                    $retArray[] = intField($field, $level);
+                    $retArray[] = intField($field, $level, $table);
                     break;
                 case "varchar":
                     $retArray[] = varcharField($field, $level);
@@ -88,18 +88,74 @@ function varcharField($field, $level) {
     return $node;
 }
 
-function intField($field, $level) {
-    $node = initNode($level);
+function intField($field, $level, $table) {
+    if ($table == 'subvoyage' || $table == "slaves" || $table == "cargo" ) {
+        switch($field["Field"]) {
+            case "sub_vessel":
+                $node = component($field, $level, "vessel");
+                return $node;
+                break;
+            case "sub_cargo1":
+            case "sub_cargo2":
+            case "sub_cargo3":
+            $node = component($field, $level, "cargo");
+            return $node;
+            break;
+            case "sub_slaves":
+                $node = component($field, $level, "slaves");
+                return $node;
+            case "sub_captain":
+            case "voyage_outfitter":
+            case "voyage_investor":
+            case "voyage_insurer":
+            case "main_actor_id":
+            case "actor_id2":
+            case "main_cargo_actor":
+            case "cargo_actor2":
+                $node = component($field, $level, "actor");
+                return $node;
+            default:
+                $node = initNode($level);
+                $node["attributes"] = array(
+                    "name" => $field["Field"],
+                    "label" => $field["Comment"],
+                    "ValueScheme" => "int",
+                    "CardinalityMin" => "0",
+                    "CardinalityMax" => "1"
+                );
+                if ($field["Null"] == "NO") {
+                    $node["attributes"]["CardinalityMin"] = "1";
+                }
+                return $node;
+                break;
+        }
+    } else {
+        $node = initNode($level);
+        $node["attributes"] = array(
+            "name" => $field["Field"],
+            "label" => $field["Comment"],
+            "ValueScheme" => "int",
+            "CardinalityMin" => "0",
+            "CardinalityMax" => "1"
+        );
+        if ($field["Null"] == "NO") {
+            $node["attributes"]["CardinalityMin"] = "1";
+        }
+        return $node;
+    }
+}
+
+function component($field, $level, $table) {
+    $node = array();
+    $node["type"] = "Component";
+    $node["level"] = $level;
+    $node["ID"] = uniqid();
     $node["attributes"] = array(
         "name" => $field["Field"],
         "label" => $field["Comment"],
-        "ValueScheme" => "int",
-        "CardinalityMin" => 0,
-        "CardinalityMax" => 1
-    );
-    if ($field["Null"] == "NO") {
-        $node["attributes"]["CardinalityMin"] = 1;
-    }
+        "CardinalityMin" => "1",
+        "CardinalityMax" => "1");
+    $node["content"] = getFields($table, $level+1);
     return $node;
 }
 

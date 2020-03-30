@@ -176,7 +176,7 @@ var formBuilder = {
         header = document.createElement('div');
         header.setAttribute('class', 'componentHeader');
         header.innerHTML = component.attributes.label;
-        if (component.attributes.CardinalityMin === '0')
+        if (component.attributes.CardinalityMin === "0")
         {
             var btn = document.createElement('input');
             btn.setAttribute('type', 'button');
@@ -193,7 +193,7 @@ var formBuilder = {
             objectDisplay = true;
         }
 
-        if (component.attributes.CardinalityMax !== '1')
+        if (component.attributes.CardinalityMax !== "1")
         {
             //header.innerHTML = component.attributes.label;
             var btn = document.createElement('input');
@@ -201,7 +201,7 @@ var formBuilder = {
             btn.setAttribute('value', '+');
             btn.setAttribute('class', 'compBtn');
             btn.setAttribute('data-source', component.ID);
-            if (component.attributes.resource !== undefined || component.attributes.CardinalityMin === '0') {
+            if (component.attributes.resource !== undefined || component.attributes.CardinalityMin === "0") {
                 $(btn).hide();
             }
             btn.onclick = function (e) {
