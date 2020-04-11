@@ -13,7 +13,7 @@
             <th>+</th>
         </tr>
         <tr class="even">
-            <td class="sea">V1</td>
+            <td id="V1" class="sea" onclick="set_candidate(this)">V1</td>
             <td>??/??/1735</td>
             <td>The Black Rock</td>
             <td>Captain Hook</td>
@@ -24,7 +24,7 @@
             </td>
         </tr>
         <tr class="even">
-            <td class="sea">V2</td>
+            <td id="V2" class="sea" onclick="set_candidate(this)">V2</td>
             <td>??/??/1735</td>
             <td>Ye Olde Barke</td>
             <td>John Davies</td>
@@ -35,7 +35,7 @@
             </td>
         </tr>
         <tr class="even">
-            <td class="sea">V3</td>
+            <td id="V3" class="sea" onclick="set_candidate(this)">V3</td>
             <td>??/??/1735</td>
             <td>The Bleak Housewive</td>
             <td>David Jefferies</td>
@@ -46,7 +46,7 @@
             </td>
         </tr>
         <tr class="even">
-            <td class="noSeaNorLand">V4</td>
+            <td id="V4" class="land" onclick="set_candidate(this)">V4</td>
             <td>??/??/1735</td>
             <td>De Gulden Draeck</td>
             <td>Harrie Smit</td>
@@ -57,7 +57,7 @@
             </td>
         </tr>
         <tr class="even">
-            <td class="sea">V5</td>
+            <td id="V5" class="sea" onclick="set_candidate(this)">V5</td>
             <td>??/??/1735</td>
             <td>Molly</td>
             <td>Jeff Bevis</td>
@@ -78,28 +78,28 @@
             <th></th>
         </tr>
         <tr>
-            <td></td>
-            <td></td>
-            <td></td>
-            <td></td>
+            <td onclick="fill_cell(this)"></td>
+            <td onclick="fill_cell(this)"></td>
+            <td onclick="fill_cell(this)"></td>
+            <td onclick="fill_cell(this)"></td>
         </tr>
         <tr>
-            <td></td>
-            <td></td>
-            <td></td>
-            <td></td>
+            <td onclick="fill_cell(this)"></td>
+            <td onclick="fill_cell(this)"></td>
+            <td onclick="fill_cell(this)"></td>
+            <td onclick="fill_cell(this)"></td>
         </tr>
         <tr>
-            <td></td>
-            <td></td>
-            <td></td>
-            <td></td>
+            <td onclick="fill_cell(this)"></td>
+            <td onclick="fill_cell(this)"></td>
+            <td onclick="fill_cell(this)"></td>
+            <td onclick="fill_cell(this)"></td>
         </tr>
         <tr>
-            <td></td>
-            <td></td>
-            <td></td>
-            <td></td>
+            <td onclick="fill_cell(this)"></td>
+            <td onclick="fill_cell(this)"></td>
+            <td onclick="fill_cell(this)"></td>
+            <td onclick="fill_cell(this)"></td>
         </tr>
     </table>
     <div id="dashBoard">

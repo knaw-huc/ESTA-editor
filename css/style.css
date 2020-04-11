@@ -161,6 +161,7 @@ border-bottom: 1px solid #555;
 
 #dependencyTable tr td{
     border-right: 1px solid #555;
+    cursor: pointer;
 }
 
 #dependencyTable tr td:last-child{
@@ -278,6 +279,7 @@ display: table-cell;
 .sea, .land, .noSeaNorLand{
     font-weight: bold;
     text-align: center;
+    vertical-align: middle !important;
 }
 
 .sea, .land{
@@ -292,11 +294,11 @@ display: table-cell;
 }
 
 .sea{
-    background-color: #003eff;
+    background-color: #06738f;
 }
 
 .land{
-    background-color: #295315;
+    background-color: #0c6917;
 }
 
 #dashBoard{
